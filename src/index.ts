@@ -1,7 +1,6 @@
 import { createDateNameMapping } from './util/calendar'
 import { createIcalFile } from './util/ical'
 import minimist from 'minimist';
-import { utcToZonedTime } from 'date-fns-tz';
 
 const argv = minimist(process.argv.slice(2));
 if (!argv.year) {
@@ -25,12 +24,6 @@ const filename = argv.filename;
 
 
 async function main() {
-    // Get the current date and time
-    const now = new Date();
-    console.log(now);
-    // Get the current timezone
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    console.log(utcToZonedTime(now, timeZone));
 
     try {
         const events = await createDateNameMapping(year, names)
