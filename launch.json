@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug",
+	    "program": "${workspaceFolder}/dist/src/index.js",
+            "cwd": "${workspaceFolder}",
+            "sourceMap": true,
+            "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+            "preLaunchTask": "build"
+        }
+    ]
+}
