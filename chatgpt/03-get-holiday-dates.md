@@ -1,8 +1,12 @@
 #### You:
-Write me a Typescript function that retrieves German holidays dates for input parameters year and "name of holiday" (in German) from a public holiday google calendar.
+Write me a Typescript function that retrieves German holidays dates for input
+parameters year and "name of holiday" (in German) from a public holiday google
+calendar.
 
 #### ChatGPT:
-Here is an example of a TypeScript function that retrieves German holiday dates for a given year and holiday name (in German) from a public holiday Google calendar:
+Here is an example of a TypeScript function that retrieves German holiday dates
+for a given year and holiday name (in German) from a public holiday Google
+calendar:
 
 ```typescript
 import { google } from 'googleapis';
@@ -26,15 +30,22 @@ async function getHolidayDates(year: number, holidayName: string): Promise<strin
 }
 ```
 
-This function uses the `googleapis` package to access the Google Calendar API, and the `calendarId` specified is for the German holiday calendar. The function takes in a year and a holiday name (in German) as input parameters, and returns an array of strings representing the dates of the holiday for that year.
+This function uses the `googleapis` package to access the Google Calendar API,
+and the `calendarId` specified is for the German holiday calendar. The function
+takes in a year and a holiday name (in German) as input parameters, and returns
+an array of strings representing the dates of the holiday for that year.
 
-Note: Before you can use this function, you must have enabled the Google Calendar API and obtained a valid API key or OAuth 2.0 credentials.
+Note: Before you can use this function, you must have enabled the Google
+Calendar API and obtained a valid API key or OAuth 2.0 credentials.
 
 #### You:
-can you add the code to authenticate using an api key? You can expect that the API key is available via an environment variable of your choice.
+can you add the code to authenticate using an api key? You can expect that the
+API key is available via an environment variable of your choice.
 
 #### ChatGPT:
-Sure, here is an example of how you could authenticate using an API key, while assuming the API key is available via an environment variable called `GOOGLE_API_KEY`:
+Sure, here is an example of how you could authenticate using an API key, while
+assuming the API key is available via an environment variable called
+`GOOGLE_API_KEY`:
 
 ```typescript
 import { google } from 'googleapis';
@@ -63,14 +74,17 @@ async function getHolidayDates(year: number, holidayName: string): Promise<strin
 
 You can pass the API key to the `auth` property of the `calendar` object.
 
-Please note that the code above is just an example and it's important to ensure that the API key is kept secure,
-and should not be hardcoded or committed to version control.
+Please note that the code above is just an example and it's important to ensure
+that the API key is kept secure, and should not be hardcoded or committed to
+version control.
 
 #### You:
 please use `https://www.abstractapi.com/api/holidays-api` instead
 
 #### ChatGPT:
-Sure, here is an example of how you could use the `https://www.abstractapi.com/api/holidays-api` API to retrieve German holiday dates for a given year and holiday name (in German):
+Sure, here is an example of how you could use the
+`https://www.abstractapi.com/api/holidays-api` API to retrieve German holiday
+dates for a given year and holiday name (in German):
 
 ```typescript
 import axios from 'axios';
@@ -96,19 +110,30 @@ async function getHolidayDates(year: number, holidayName: string): Promise<strin
 }
 ```
 
-This function uses the `axios` package to make a GET request to the `https://www.abstractapi.com/api/holidays-api` API. It takes in a year and a holiday name (in German) as input parameters, and returns an array of strings representing the dates of the holiday for that year.
+This function uses the `axios` package to make a GET request to the
+`https://www.abstractapi.com/api/holidays-api` API. It takes in a year and a
+holiday name (in German) as input parameters, and returns an array of strings
+representing the dates of the holiday for that year.
 
-The `params` object passed in the request contains the country code 'de' and the year for which you want to retrieve the holidays.
+The `params` object passed in the request contains the country code 'de' and the
+year for which you want to retrieve the holidays.
 
-You must have enabled the API and obtained a valid API key, which is available via an environment variable called `ABSTRACT_API_KEY`.
+You must have enabled the API and obtained a valid API key, which is available
+via an environment variable called `ABSTRACT_API_KEY`.
 
-Please note that the code above is just an example and it's important to ensure that the API key is kept secure and should not be hardcoded or committed to version control.
+Please note that the code above is just an example and it's important to ensure
+that the API key is kept secure and should not be hardcoded or committed to
+version control.
 
 #### You:
-I do like the google api version better, so please add explanatory comments to it and adapt the code so that it is a node.js module with all necessary imports and exports
+I do like the google api version better, so please add explanatory comments to
+it and adapt the code so that it is a node.js module with all necessary imports
+and exports
 
 #### ChatGPT:
-Sure, here is an example of the Google Calendar API version with explanatory comments and adapted to be a Node.js module with all necessary imports and exports:
+Sure, here is an example of the Google Calendar API version with explanatory
+comments and adapted to be a Node.js module with all necessary imports and
+exports:
 
 ```typescript
 import { google } from 'googleapis';
@@ -142,12 +167,18 @@ async function getHolidayDates(year: number, holidayName: string): Promise<strin
 export default getHolidayDates;
 ```
 
-This function uses the `googleapis` package to access the Google Calendar API, and the `calendarId` specified is for the German holiday calendar.
-It takes in a year and a holiday name (in German) as input parameters, and returns an array of strings representing the dates of the holiday for that year.
+This function uses the `googleapis` package to access the Google Calendar API,
+and the `calendarId` specified is for the German holiday calendar. It takes in a
+year and a holiday name (in German) as input parameters, and returns an array of
+strings representing the dates of the holiday for that year.
 
-The `calendar` object is created by passing the API key to the `auth` property, which is obtained via an environment variable called `GOOGLE_API_KEY`.
+The `calendar` object is created by passing the API key to the `auth` property,
+which is obtained via an environment variable called `GOOGLE_API_KEY`.
 
-It's important to note that the code above is just an example and it's important to ensure that the API key is kept secure and should not be hardcoded or committed to version control. Also, the `googleapis` package need to be installed to your project
+It's important to note that the code above is just an example and it's important
+to ensure that the API key is kept secure and should not be hardcoded or
+committed to version control. Also, the `googleapis` package need to be
+installed to your project
 
 Please let me know if there is anything else I can help you with.
 
@@ -155,9 +186,11 @@ Please let me know if there is anything else I can help you with.
 The compiler says it cannot find googleapis.
 
 #### ChatGPT:
-I apologize for the confusion, In order to use the `googleapis` package, you will first need to install it in your project.
+I apologize for the confusion, In order to use the `googleapis` package, you
+will first need to install it in your project.
 
-You can install it by running the following command in your project's root directory:
+You can install it by running the following command in your project's root
+directory:
 
 ```
 npm install googleapis
@@ -169,17 +202,22 @@ or
 yarn add googleapis
 ```
 
-Once it's installed, you should be able to import it in your code and use the `google.calendar` object to interact with the Google Calendar API.
+Once it's installed, you should be able to import it in your code and use the
+`google.calendar` object to interact with the Google Calendar API.
 
-Please also make sure that you have enabled the Google Calendar API for your project and obtained a valid API key or OAuth 2.0 credentials. You will need to pass this API key to the `auth` property when creating the `calendar` object.
+Please also make sure that you have enabled the Google Calendar API for your
+project and obtained a valid API key or OAuth 2.0 credentials. You will need to
+pass this API key to the `auth` property when creating the `calendar` object.
 
 Let me know if you have any other issues.
 
 #### You:
-The method getHolidayDates should be blocking with a corresponding error handling and return date-fns compatible dates and not strings
+The method getHolidayDates should be blocking with a corresponding error
+handling and return date-fns compatible dates and not strings
 
 #### ChatGPT:
-Here is an updated version of the function that handles errors and returns date-fns compatible dates:
+Here is an updated version of the function that handles errors and returns
+date-fns compatible dates:
 
 ```typescript
 import { google } from 'googleapis';
@@ -226,16 +264,24 @@ async function getHolidayDates(year: number, holidayName: string): Promise<Date[
 export default getHolidayDates;
 ```
 
-This function uses the `googleapis` package to access the Google Calendar API, and the `calendarId` specified is for the German holiday calendar.
-It takes in a year and a holiday name (in German) as input parameters, and returns an array of `Date` objects representing the dates of the holiday for that year.
+This function uses the `googleapis` package to access the Google Calendar API,
+and the `calendarId` specified is for the German holiday calendar. It takes in a
+year and a holiday name (in German) as input parameters, and returns an array of
+`Date` objects representing the dates of the holiday for that year.
 
-The `calendar` object is created by passing the API key to the `auth` property, which is obtained via an environment variable called `GOOGLE_API_KEY`.
+The `calendar` object is created by passing the API key to the `auth` property,
+which is obtained via an environment variable called `GOOGLE_API_KEY`.
 
-It uses the `parse` function from date-fns package to convert the string date format returned by the API to a JavaScript Date object, and throws an error in case the API call fails or the holiday is not found.
+It uses the `parse` function from date-fns package to convert the string date
+format returned by the API to a JavaScript Date object, and throws an error in
+case the API call fails or the holiday is not found.
 
-Please make sure that you have installed the date-fns package and that you have enabled the Google Calendar API for your project and obtained a valid API key or OAuth 2.0 credentials.
+Please make sure that you have installed the date-fns package and that you have
+enabled the Google Calendar API for your project and obtained a valid API key or
+OAuth 2.0 credentials.
 
-Let me know if you have any other issues or if there's anything else I can help you with.
+Let me know if you have any other issues or if there's anything else I can help
+you with.
 
 #### You:
 The compiler does not accept the line "calendarId: 'de.german#holiday@group.v.calendar.google.com',". It says:  "No overload matches this call.
@@ -244,9 +290,12 @@ The compiler does not accept the line "calendarId: 'de.german#holiday@group.v.ca
       Object literal may only specify known properties, and 'calendarId' does not exist in type 'BodyResponseCallback<Schema$Events>'."
 
 #### ChatGPT:
-I apologize for the mistake, it seems that the error is being caused by the way the `calendar.events.list` method is being invoked.
+I apologize for the mistake, it seems that the error is being caused by the way
+the `calendar.events.list` method is being invoked.
 
-The `calendar.events.list` method takes in an object with several properties, including the `calendarId` and the `timeMin`, `timeMax`, `singleEvents`, `orderBy` properties that are being passed in the example.
+The `calendar.events.list` method takes in an object with several properties,
+including the `calendarId` and the `timeMin`, `timeMax`, `singleEvents`,
+`orderBy` properties that are being passed in the example.
 
 Here is an updated version of the function that should work:
 
@@ -294,9 +343,12 @@ async function getHolidayDates(year: number, holidayName: string): Promise<Date[
 export default getHolidayDates;
 ```
 
-The error was caused because the timeMin and timeMax properties needs to be in the format "yyyy-MM-ddTHH:mm:ss.SSSXXX" instead of Date Object, so I've used the date-fns package to format the date accordingly.
+The error was caused because the timeMin and timeMax properties needs to be in
+the format "yyyy-MM-ddTHH:mm:ss.SSSXXX" instead of Date Object, so I've used the
+date-fns package to format the date accordingly.
 
-Please let me know if this works or if there's anything else I can help you with.
+Please let me know if this works or if there's anything else I can help you
+with.
 
 #### You:
 The compiler argues "'holidays.data.items' is possibly 'undefined'." and "'holiday.start' is possibly 'undefined'.ts(18048)
@@ -304,9 +356,12 @@ Argument of type 'string | null | undefined' is not assignable to parameter of t
   Type 'undefined' is not assignable to type 'string'.ts(2345)"
 
 #### ChatGPT:
-I apologize for the mistake, it seems that the error is being caused because the `items` and `start` properties of the response object may not be defined.
+I apologize for the mistake, it seems that the error is being caused because the
+`items` and `start` properties of the response object may not be defined.
 
-One way to fix this issue is to check if the properties exist before trying to access them. You can use the `if (holidays.data && holidays.data.items)` to check if the items property exists and proceed accordingly.
+One way to fix this issue is to check if the properties exist before trying to
+access them. You can use the `if (holidays.data && holidays.data.items)` to
+check if the items property exists and proceed accordingly.
 
 Here is an updated version of the function that should work:
 
@@ -366,29 +421,39 @@ Sure, here is the rest of the function:
 continue
 
 #### ChatGPT:
+```typescript
 Error retrieving holiday dates: ${err.message}`);
 }
 }
 export default getHolidayDates;
 
-```vbnet
-
-In this version of the function, I've added a check to see if the `holidays.data.items` property exists before trying to access it. If it does exist, the function filters the holidays by the specified holiday name, maps the holiday dates and assigns them to the `holidayDates` variable. If the items property is not defined, the holidayDates variable will stay empty.
-
-Also, I've added an additional check to check if the `holidayDates` array is empty, if it is, it throws an error that the holiday was not found for that year.
-
-Please let me know if this version of the function works for you or if you have any other issues.
 ```
+
+In this version of the function, I've added a check to see if the
+`holidays.data.items` property exists before trying to access it. If it does
+exist, the function filters the holidays by the specified holiday name, maps the
+holiday dates and assigns them to the `holidayDates` variable. If the items
+property is not defined, the holidayDates variable will stay empty.
+
+Also, I've added an additional check to check if the `holidayDates` array is
+empty, if it is, it throws an error that the holiday was not found for that
+year.
+
+Please let me know if this version of the function works for you or if you have
+any other issues.
 
 #### You:
 My project uses setting `strict`.
 
 #### ChatGPT:
-In strict mode, TypeScript assumes that the properties of an object are `undefined` unless they are explicitly defined with a type.
+In strict mode, TypeScript assumes that the properties of an object are
+`undefined` unless they are explicitly defined with a type.
 
-To fix this issue with the `holidays.data.items` property, you can use the `as` keyword to cast the `holidays.data` object to the expected type.
+To fix this issue with the `holidays.data.items` property, you can use the `as`
+keyword to cast the `holidays.data` object to the expected type.
 
-Here is an updated version of the function that should work with the `strict` setting enabled:
+Here is an updated version of the function that should work with the `strict`
+setting enabled:
 
 ```typescript
 import { google } from 'googleapis';
@@ -436,6 +501,7 @@ async function getHolidayDates(year: number, holidayName: string): Promise<Date[
 continue
 
 #### ChatGPT:
+```typescript
 = (holidays.data as Holidays).items
 .filter((holiday) => holiday.summary === holidayName)
 .map((holiday) => parse(holiday.start.date, "yyyy-MM-dd", new Date()));
@@ -450,24 +516,35 @@ throw new Error(`Error retrieving holiday dates: ${err.message}`);
 }
 export default getHolidayDates;
 
-```vbnet
-
-In this version of the function, I've defined two interfaces `Holiday` and `Holidays`, to explicitly define the shape of the `holidays.data` object and its properties, `items`. Then using the `as` keyword, I've cast the `holidays.data` object to the `Holidays` type, to ensure that TypeScript knows that the `items` property is expected to exist.
-
-This way, TypeScript will no longer raise an error when trying to access the `items` property.
-
-Please let me know if this version of the function works for you or if you have any other issues.
 ```
 
+In this version of the function, I've defined two interfaces `Holiday` and
+`Holidays`, to explicitly define the shape of the `holidays.data` object and its
+properties, `items`. Then using the `as` keyword, I've cast the `holidays.data`
+object to the `Holidays` type, to ensure that TypeScript knows that the `items`
+property is expected to exist.
+
+This way, TypeScript will no longer raise an error when trying to access the
+`items` property.
+
+Please let me know if this version of the function works for you or if you have
+any other issues.
+
+
 #### You:
-The compiler says "Variable 'holidayDates' implicitly has type 'any[]' in some locations where its type cannot be determined.".
+The compiler says "Variable 'holidayDates' implicitly has type 'any[]' in some
+locations where its type cannot be determined.".
 
 #### ChatGPT:
-I apologize for the mistake, it seems that the error is being caused because the `holidayDates` variable is not being explicitly typed. In strict mode, TypeScript requires that variables are given a type.
+I apologize for the mistake, it seems that the error is being caused because the
+`holidayDates` variable is not being explicitly typed. In strict mode,
+TypeScript requires that variables are given a type.
 
-To fix this issue, you can explicitly type the `holidayDates` variable as an array of `Date` objects.
+To fix this issue, you can explicitly type the `holidayDates` variable as an
+array of `Date` objects.
 
-Here is an updated version of the function that should work with the `strict` setting enabled:
+Here is an updated version of the function that should work with the `strict`
+setting enabled:
 
 ```typescript
 import { google } from 'googleapis';
@@ -533,19 +610,27 @@ Sure, here is the rest of the function:
 export default getHolidayDates;
 ```
 
-In this version of the function, I've explicitly typed the `holidayDates` variable as an array of `Date` objects by adding `: Date[]` after the variable declaration. This way TypeScript will not raise an error and know that `holidayDates` is an array of Dates.
+In this version of the function, I've explicitly typed the `holidayDates`
+variable as an array of `Date` objects by adding `: Date[]` after the variable
+declaration. This way TypeScript will not raise an error and know that
+`holidayDates` is an array of Dates.
 
-Please let me know if this version of the function works for you or if you have any other issues.
+Please let me know if this version of the function works for you or if you have
+any other issues.
 
 #### You:
 The compiler says "'err' is of type 'unknown'.ts(18046)".
 
 #### ChatGPT:
-I apologize for the mistake, it seems that the error is being caused because the `err` variable is not being explicitly typed and TypeScript assumes it as `unknown` type.
+I apologize for the mistake, it seems that the error is being caused because the
+`err` variable is not being explicitly typed and TypeScript assumes it as
+`unknown` type.
 
-To fix this issue, you can explicitly type the `err` variable as an instance of the `Error` class.
+To fix this issue, you can explicitly type the `err` variable as an instance of
+the `Error` class.
 
-Here is an updated version of the function that should work with the `strict` setting enabled:
+Here is an updated version of the function that should work with the `strict`
+setting enabled:
 
 ```typescript
 import { google } from 'googleapis';
@@ -611,17 +696,26 @@ async function getHolidayDates(year: number, holidayName: string): Promise<Date[
 export default getHolidayDates;
 ```
 
-In this version of the function, I've explicitly typed the `err` variable as an instance of the `Error` class by adding `: unknown` after the variable declaration and then on the throw statement, I've casted the `err` variable to the `Error` type using `as Error` . This way TypeScript will not raise an error and know that `err` is an instance of the Error class.
+In this version of the function, I've explicitly typed the `err` variable as an
+instance of the `Error` class by adding `: unknown` after the variable
+declaration and then on the throw statement, I've casted the `err` variable to
+the `Error` type using `as Error` . This way TypeScript will not raise an error
+and know that `err` is an instance of the Error class.
 
-Please let me know if this version of the function works for you or if you have any other issues.
+Please let me know if this version of the function works for you or if you have
+any other issues.
 
 #### You:
-The method still returns a promise although I would like to have a blocking function that returns Date[]
+The method still returns a promise although I would like to have a blocking
+function that returns Date[]
 
 #### ChatGPT:
-You're correct, the function is currently returning a promise that resolves to an array of `Date` objects.
+You're correct, the function is currently returning a promise that resolves to
+an array of `Date` objects.
 
-To make the function blocking and return the `Date[]` directly, you can use the `await` keyword inside of a `try-catch` block and remove the `async` keyword from the function definition.
+To make the function blocking and return the `Date[]` directly, you can use the
+`await` keyword inside of a `try-catch` block and remove the `async` keyword
+from the function definition.
 
 Here is the updated version of the function:
 
@@ -689,18 +783,27 @@ Sure, here is the rest of the function:
 export default getHolidayDates;
 ```
 
-In this version of the function, I've removed the `async` keyword from the function definition and wrapped the `calendar.events.list` method with `.then(response => response.data)` this way the function will wait for the response from the Google Calendar API before executing the next lines of code and the function will directly return the holidayDates array.
+In this version of the function, I've removed the `async` keyword from the
+function definition and wrapped the `calendar.events.list` method with
+`.then(response => response.data)` this way the function will wait for the
+response from the Google Calendar API before executing the next lines of code
+and the function will directly return the holidayDates array.
 
 Please let me know if
 
 #### You:
-The compiler complains "Property 'items' does not exist on type 'Promise<Schema$Events>'.ts(2339)
-holiday.ts(38, 22): Did you forget to use 'await'?".
+The compiler complains "Property 'items' does not exist on type
+'Promise<Schema$Events>'.ts(2339) holiday.ts(38, 22): Did you forget to use
+'await'?".
 
 #### ChatGPT:
-I apologize for the mistake, the error is being caused because TypeScript does not know that the `holidays` variable is going to be resolved to an object with an `items` property because the `calendar.events.list` method is returning a promise.
+I apologize for the mistake, the error is being caused because TypeScript does
+not know that the `holidays` variable is going to be resolved to an object with
+an `items` property because the `calendar.events.list` method is returning a
+promise.
 
-To fix this issue, you can use the `await` keyword inside of the try block to wait for the promise to resolve before trying to access the `items` property.
+To fix this issue, you can use the `await` keyword inside of the try block to
+wait for the promise to resolve before trying to access the `items` property.
 
 Here is the updated version of the function:
 
@@ -768,17 +871,23 @@ dates: ${err.message}`);
 export default getHolidayDates;
 ```
 
-In this version of the function, I've used the `await` keyword before the `calendar.events.list` method to wait for the promise to resolve. This way TypeScript knows that the `holidays` variable is going to be an object with a `data` property that contains the `items` property and the function will directly return the `holidayDates` array.
+In this version of the function, I've used the `await` keyword before the
+`calendar.events.list` method to wait for the promise to resolve. This way
+TypeScript knows that the `holidays` variable is going to be an object with a
+`data` property that contains the `items` property and the function will
+directly return the `holidayDates` array.
 
-Please let me know if this version of the function works for you or if you have any other issues.
+Please let me know if this version of the function works for you or if you have
+any other issues.
 
 #### You:
-You cannot use await in a non-async function. Try to wrap an anonymous async function around the await.
+You cannot use await in a non-async function. Try to wrap an anonymous async
+function around the await.
 
 #### ChatGPT:
-You're correct, I apologize for my mistake.
-The `await` keyword can only be used inside of an `async` function.
-To fix this issue, you can wrap the entire function inside an anonymous `async` function and remove the `await` keyword.
+You're correct, I apologize for my mistake. The `await` keyword can only be used
+inside of an `async` function. To fix this issue, you can wrap the entire
+function inside an anonymous `async` function and remove the `await` keyword.
 
 Here is the updated version of the function:
 
@@ -847,18 +956,27 @@ singleEvents: true,
 export default getHolidayDates;
 ```
 
-In this version of the function, I've wrapped the entire function inside an anonymous async function. This way the function will return a promise that resolves to an array of `Date` objects. And you can use the await keyword inside the function.
-Please let me know if this version of the function works for you or if you have any other issues.
+In this version of the function, I've wrapped the entire function inside an
+anonymous async function. This way the function will return a promise that
+resolves to an array of `Date` objects. And you can use the await keyword inside
+the function. Please let me know if this version of the function works for you
+or if you have any other issues.
 
 #### You:
-The code of the answer for my question `The compiler says "'err' is of type 'unknown'.ts(18046)".` works best. But executing it returns with a "Bad Request" error message. So what can I log out to get more context of the error?
+The code of the answer for my question `The compiler says "'err' is of type
+'unknown'.ts(18046)".` works best. But executing it returns with a "Bad Request"
+error message. So what can I log out to get more context of the error?
 
 #### ChatGPT:
-If the API returns a "Bad Request" error message, it means that the request you're making to the API is not well-formed or the API is not able to understand it.
-In order to get more context on the error, you can try logging out the request options you're passing to the `calendar.events.list` method.
-You can also log out the entire error object you're catching to see if it contains any additional information that might help you understand what's causing the error.
+If the API returns a "Bad Request" error message, it means that the request
+you're making to the API is not well-formed or the API is not able to understand
+it. In order to get more context on the error, you can try logging out the
+request options you're passing to the `calendar.events.list` method. You can
+also log out the entire error object you're catching to see if it contains any
+additional information that might help you understand what's causing the error.
 
-Here is an example of how you could modify the `catch` block to log out the request options and the error object:
+Here is an example of how you could modify the `catch` block to log out the
+request options and the error object:
 
 ```typescript
 } catch (err) {
@@ -957,12 +1075,12 @@ Error retrieving holiday dates: GaxiosError: Bad Request
 }`
 
 #### ChatGPT:
-It looks like the request options are not formatted as expected.
-The timeMin and timeMax options are not formatted correctly.
-It should be in the format "yyyy-MM-ddTHH:mm:ss.SSSZ"
-For example: `2023-01-01T00:00:00.000Z`
+It looks like the request options are not formatted as expected. The timeMin and
+timeMax options are not formatted correctly. It should be in the format
+"yyyy-MM-ddTHH:mm:ss.SSSZ" For example: `2023-01-01T00:00:00.000Z`
 
-I apologize for the confusion, you can change the format of the timeMin and timeMax options like this:
+I apologize for the confusion, you can change the format of the timeMin and
+timeMax options like this:
 
 ```typescript
 timeMin: format(new Date(`${year}-01-01T00:00:00.000Z`), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
@@ -984,15 +1102,21 @@ Error retrieving holiday dates: Error: Holiday Himmelfahrt not found for year 20
     at Generator.next (<anonymous>)`
 
 #### ChatGPT:
-It looks like the problem is that the function is not finding any events for the holiday you're searching for.
-The error message `Holiday Himmelfahrt not found for year 2023` indicates that the function is unable to find any events with the summary "Himmelfahrt" in the year 2023.
+It looks like the problem is that the function is not finding any events for the
+holiday you're searching for. The error message `Holiday Himmelfahrt not found
+for year 2023` indicates that the function is unable to find any events with the
+summary "Himmelfahrt" in the year 2023.
 
 There could be a few reasons for this:
 
 - The holiday name is not spelled correctly in German
 - The event for that holiday might not be present in the Google Calendar
-- There could be an issue with the calendarId being used, make sure that it is correct
-- The timeMin and timeMax options might be set to a range that does not include the date of the holiday
+- There could be an issue with the calendarId being used, make sure that it is
+  correct
+- The timeMin and timeMax options might be set to a range that does not include
+  the date of the holiday
 
-I would recommend checking the spelling of the holiday, double-checking the calendarId and also checking the range of the timeMin and timeMax options to make sure they include the date of the holiday.
-Please let me know if you need further assistance.
+I would recommend checking the spelling of the holiday, double-checking the
+calendarId and also checking the range of the timeMin and timeMax options to
+make sure they include the date of the holiday. Please let me know if you need
+further assistance.

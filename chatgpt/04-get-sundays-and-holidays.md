@@ -1,5 +1,9 @@
 #### You:
-Create a Typescript function with input parameter year, that uses a given function `getSundays(year: number): Date[]` to retrieve a list of dates which are enhanced by calling a given function `getHoliday` which takes a year and a holidayName and retrieves a date to get the German holidays "Karfreitag" and "Himmelfahrt". The dates should be added to the sundays and returns all dates.
+Create a Typescript function with input parameter year, that uses a given
+function `getSundays(year: number): Date[]` to retrieve a list of dates which
+are enhanced by calling a given function `getHoliday` which takes a year and a
+holidayName and retrieves a date to get the German holidays "Karfreitag" and
+"Himmelfahrt". The dates should be added to the sundays and returns all dates.
 
 #### ChatGPT:
 ```typescript
@@ -34,7 +38,8 @@ function getSundaysAndHolidays(year: number): Date[] {
 }
 ```
 
-You should also make sure that you have the correct path to the util.ts file and that the methods being imported are correctly exported in the util.ts file.
+You should also make sure that you have the correct path to the util.ts file and
+that the methods being imported are correctly exported in the util.ts file.
 
 #### You:
 Add some explanatory comments
@@ -64,7 +69,10 @@ function getSundaysAndHolidays(year: number): Date[] {
 }
 ```
 
-Note that the comments are describing what the function does and that the specific implementation is coming from the imported modules from the util.ts file. You can also add comments on the imported functions in the util.ts file if they are not straightforward.
+Note that the comments are describing what the function does and that the
+specific implementation is coming from the imported modules from the util.ts
+file. You can also add comments on the imported functions in the util.ts file if
+they are not straightforward.
 
 #### You:
 make this a node.js module and export the main function
@@ -95,17 +103,21 @@ export function getSundaysAndHolidays(year: number): Date[] {
 }
 ```
 
-Here, the function `getSundaysAndHolidays` is exported so that it can be imported and used by other files in your Node.js project. The `import` statement is used to import the required functions from the util.ts file.
-You can now use this function in other files by importing it as a module like this:
+Here, the function `getSundaysAndHolidays` is exported so that it can be
+imported and used by other files in your Node.js project. The `import` statement
+is used to import the required functions from the util.ts file. You can now use
+this function in other files by importing it as a module like this:
 
 ```typescript
 import { getSundaysAndHolidays } from "./sundays-holidays";
 ```
 
-Also, make sure that your file has the correct extension .ts and you are running the correct version of typescript.
+Also, make sure that your file has the correct extension .ts and you are running
+the correct version of typescript.
 
 #### You:
-Function `getHolidayDates` is an async function so that it returns a `Promise<Date[]>`. Please adapt.
+Function `getHolidayDates` is an async function so that it returns a
+`Promise<Date[]>`. Please adapt.
 
 #### ChatGPT:
 ```typescript
@@ -132,9 +144,12 @@ export async function getSundaysAndHolidays(year: number): Promise<Date[]> {
 }
 ```
 
-Here, the function `getSundaysAndHolidays` is now marked as async, since it is calling an async function `getHoliday` and is returning the result wrapped in a promise.
-And also the `await` keyword is used before calling the `getHoliday` function to make sure that the execution of the function is paused until the promise is resolved.
-This way you can handle the result when it is returned by awaiting the promise.
+Here, the function `getSundaysAndHolidays` is now marked as async, since it is
+calling an async function `getHoliday` and is returning the result wrapped in a
+promise. And also the `await` keyword is used before calling the `getHoliday`
+function to make sure that the execution of the function is paused until the
+promise is resolved. This way you can handle the result when it is returned by
+awaiting the promise.
 
 ```javascript
 const dates = await getSundaysAndHolidays(2022)
@@ -169,11 +184,14 @@ export async function getSundaysAndHolidays(year: number): Promise<Date[]> {
 }
 ```
 
-Here, the function `getSundaysAndHolidays` is now calling the correct function `getHolidayDates` instead of `getHoliday` and other than that the rest of the code is the same as before.
-Now you can use the function `getSundaysAndHolidays` in the same way as before and it will return the expected results.
+Here, the function `getSundaysAndHolidays` is now calling the correct function
+`getHolidayDates` instead of `getHoliday` and other than that the rest of the
+code is the same as before. Now you can use the function `getSundaysAndHolidays`
+in the same way as before and it will return the expected results.
 
 #### You:
-The return type of function `getHolidayDates` is `Promise<Date[]>` not `Promise<Date>`.
+The return type of function `getHolidayDates` is `Promise<Date[]>` not
+`Promise<Date>`.
 
 #### ChatGPT:
 ```typescript
@@ -200,7 +218,11 @@ export async function getSundaysAndHolidays(year: number): Promise<Date[]> {
 }
 ```
 
-Here, the function `getSundaysAndHolidays` is now calling the correct function `getHolidayDates` and it is expecting that the function returns an array of dates.
-The `Promise.all` is used to wait for multiple promises to resolve and it returns an array of resolved values in the same order as the promises passed to it.
-The array destructuring is used to extract the individual arrays of dates and then they are combined using the spread operator.
-Now you can use the function `getSundaysAndHolidays` in the same way as before and it will return the expected results.
+Here, the function `getSundaysAndHolidays` is now calling the correct function
+`getHolidayDates` and it is expecting that the function returns an array of
+dates. The `Promise.all` is used to wait for multiple promises to resolve and it
+returns an array of resolved values in the same order as the promises passed to
+it. The array destructuring is used to extract the individual arrays of dates
+and then they are combined using the spread operator. Now you can use the
+function `getSundaysAndHolidays` in the same way as before and it will return
+the expected results.

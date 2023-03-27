@@ -1,5 +1,8 @@
 #### You:
-Create a Typescript function with input for the year and a list of names that uses a given function `getSundaysAndHolidays(year: number): Date[]` to retrieve dates and creates a mapping using index signatures by creating a random and equally distributed mapping from names to dates.
+Create a Typescript function with input for the year and a list of names that
+uses a given function `getSundaysAndHolidays(year: number): Date[]` to retrieve
+dates and creates a mapping using index signatures by creating a random and
+equally distributed mapping from names to dates.
 
 #### ChatGPT:
 ```typescript
@@ -18,10 +21,16 @@ function createNameDateMapping(year: number, names: string[]): { [name: string]:
 }
 ```
 
-This function takes in an input year and a list of names, and uses the given function `getSundaysAndHolidays` to retrieve an array of dates. It then creates an empty object with an index signature that maps names to dates. It then iterates through the names and assigns each name a random date from the array of sundays and holidays. It returns the mapping object at the end.
+This function takes in an input year and a list of names, and uses the given
+function `getSundaysAndHolidays` to retrieve an array of dates. It then creates
+an empty object with an index signature that maps names to dates. It then
+iterates through the names and assigns each name a random date from the array of
+sundays and holidays. It returns the mapping object at the end.
 
 #### You:
-Use the library date-fns and add some explanatory comments, please. Enhance the code, so that it fulfills the requirements to a node.js module with all imports and exports.
+Use the library date-fns and add some explanatory comments, please. Enhance the
+code, so that it fulfills the requirements to a node.js module with all imports
+and exports.
 
 #### ChatGPT:
 ```typescript
@@ -86,7 +95,13 @@ export function createNameDateMapping(year: number, names: string[]): { [name: s
 }
 ```
 
-This code is a node.js module that exports the function `createNameDateMapping`. It imports the `date-fns` library for date manipulation. The code includes two new functions `getSundays(year: number)` and `getHolidays(year: number)` that are used to get all sundays and holidays of a given year respectively. The function `getSundaysAndHolidays(year: number)` combines the sundays and holidays to be used as input for the `createNameDateMapping(year: number, names: string[])` function. The `createNameDateMapping
+This code is a node.js module that exports the function `createNameDateMapping`.
+It imports the `date-fns` library for date manipulation. The code includes two
+new functions `getSundays(year: number)` and `getHolidays(year: number)` that
+are used to get all sundays and holidays of a given year respectively. The
+function `getSundaysAndHolidays(year: number)` combines the sundays and holidays
+to be used as input for the `createNameDateMapping(year: number, names:
+string[])` function. The `createNameDateMapping
 
 #### You:
 The function `getSundaysAndHolidays` is `async`.
@@ -156,10 +171,17 @@ export async function createNameDateMapping(year: number, names: string[]): Prom
 }
 ```
 
-The above code is a node.js module that exports the function `createNameDateMapping` as an asynchronous function. It imports the `date-fns` library for date manipulation. The code includes two new functions `getSundays(year: number)` and `getHolidays(year: number)` that are used to get all sundays and holidays of a given year respectively. The function `getSundaysAndHolidays
+The above code is a node.js module that exports the function
+`createNameDateMapping` as an asynchronous function. It imports the `date-fns`
+library for date manipulation. The code includes two new functions
+`getSundays(year: number)` and `getHolidays(year: number)` that are used to get
+all sundays and holidays of a given year respectively. The function
+`getSundaysAndHolidays
 
 #### You:
-Sorry, but the mapping should be the other way around, i.e. the dates should be mapped equally distributed to names. Each date of the input should be the key for one entry in the output.
+Sorry, but the mapping should be the other way around, i.e. the dates should be
+mapped equally distributed to names. Each date of the input should be the key
+for one entry in the output.
 
 #### ChatGPT:
 ```typescript
@@ -227,4 +249,7 @@ export async function createDateNameMapping(year: number, names: string[]): Prom
 }
 ```
 
-The above code exports the function `createDateNameMapping` as an asynchronous function that creates a mapping of dates to names. It imports the `date-fns` library for date manipulation and includes two new functions `getSundays(year: number)` and `getHolidays(year: number)` that are used to get all sund
+The above code exports the function `createDateNameMapping` as an asynchronous
+function that creates a mapping of dates to names. It imports the `date-fns`
+library for date manipulation and includes two new functions `getSundays(year:
+number)` and `getHolidays(year: number)` that are used to get all sund
